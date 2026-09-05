@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NARUTO — Premium Fashion & Streetwear App</title>
+    <meta name="description" content="Shop official NARUTO fashion, streetwear, hoodies, t-shirts, jackets, cargo pants, dresses and accessories with fast express delivery.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-dark">
+
+    <div class="app-container">
+
+        <!-- ==================== 1. SPLASH SCREEN ==================== -->
+        <div id="splash-screen" class="splash-screen">
+            <div class="splash-content">
+                <div class="splash-logo-wrap">
+                    <div class="naruto-symbol-ring"></div>
+                    <i class="fa-solid fa-fire-flame-curved splash-logo-icon"></i>
+                </div>
+                <h1 class="splash-brand-title">NARUTO</h1>
+                <p class="splash-tagline">STREETWEAR & HIGH FASHION</p>
+                <div class="splash-loader">
+                    <div class="loader-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 2. PHONE OTP AUTH SCREEN ==================== -->
+        <div id="auth-screen" class="auth-screen hidden">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="brand-badge"><i class="fa-solid fa-fire"></i> NARUTO</div>
+                    <h2 id="auth-title">Welcome to NARUTO</h2>
+                    <p id="auth-subtitle">Enter your phone number to get started with OTP</p>
+                </div>
+
+                <!-- STEP 1: Phone Input Form -->
+                <form id="phone-form" class="auth-form">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <div class="phone-input-group">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="input-phone" placeholder="9876543210" maxlength="10" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Continue <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <!-- STEP 2: OTP Verification Form -->
+                <form id="otp-form" class="auth-form hidden">
+                    <div class="otp-info-banner">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>OTP sent to <strong id="otp-phone-display">+91 9876543210</strong></span>
+                    </div>
+
+                    <!-- Debug OTP notification box for instant testing -->
+                    <div id="debug-otp-box" class="debug-otp-box">
+                        <i class="fa-solid fa-key"></i> Test OTP Code: <strong id="debug-otp-code">789012</strong>
+                        <button type="button" class="btn-copy-otp" onclick="app.autofillOTP()">Auto Fill</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enter 6-Digit OTP</label>
+                        <div class="otp-inputs">
+                            <input type="text" class="otp-digit" maxlength="1" autofocus>
+                            <input type="text" class="otp-digit" maxlength="1">
+                            <input type="text" class="otp-digit" maxlength="1">
+                            <input type="text" class="otp-digit" maxlength="1">
+                            <input type="text" class="otp-digit" maxlength="1">
+                            <input type="text" class="otp-digit" maxlength="1">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Verify & Sign In <i class="fa-solid fa-check"></i>
+                    </button>
+
+                    <div class="resend-timer-wrap">
+                        <span id="resend-timer-text">Resend OTP in <strong id="timer-countdown">30</strong>s</span>
+                        <button type="button" id="btn-resend-otp" class="btn-link hidden" onclick="app.resendOTP()">Resend OTP</button>
+                    </div>
+                </form>
+
+                <!-- STEP 3: Signup Details (New Users) -->
+                <form id="signup-form" class="auth-form hidden">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="signup-name" placeholder="e.g. Naruto Uzumaki" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address (Optional)</label>
+                        <input type="email" id="signup-email" placeholder="naruto@leaf.village">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Create Account & Start Shopping
+                    </button>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- ==================== MAIN HEADER ==================== -->
+        <header id="main-header" class="main-header hidden">
+            <div class="header-top">
+                <div class="brand-logo" onclick="app.navigateTo('home')">
+                    <i class="fa-solid fa-fire-flame-curved logo-icon"></i>
+                    <span class="logo-text">NARUTO</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" onclick="app.navigateTo('notifications')" title="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span id="notif-badge" class="badge-count hidden">0</span>
+                    </button>
+                    <button class="header-btn" onclick="app.navigateTo('wishlist')" title="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                        <span id="wishlist-badge" class="badge-count hidden">0</span>
+                    </button>
+                    <button class="header-btn" onclick="app.navigateTo('cart')" title="Cart">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="cart-badge" class="badge-count hidden">0</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Search bar -->
+            <div class="header-search-wrap">
+                <div class="search-input-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="global-search-input" placeholder="Search hoodies, jackets, t-shirts, dresses..." onkeyup="app.handleGlobalSearch(event)">
+                    <button id="search-clear-btn" class="search-clear-btn hidden" onclick="app.clearSearch()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+        <main id="main-content" class="main-content hidden">
+
+            <!-- VIEW: HOME -->
+            <section id="view-home" class="app-view active">
+                <!-- Promo Banners Slider -->
+                <div class="banner-slider">
+                    <div class="banner-slide active-slide">
+                        <div class="banner-content">
+                            <span class="banner-tag">NEW SEASON DROP</span>
+                            <h2>AKATSUKI STREETWEAR</h2>
+                            <p>Oversized Hoodies & Techwear Cargos</p>
+                            <button class="btn btn-sm btn-orange" onclick="app.filterByCategory('Hoodies')">Shop Collection</button>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" alt="Hoodies" class="banner-img">
+                    </div>
+                </div>
+
+                <!-- Categories Grid -->
+                <div class="section-block">
+                    <div class="section-header">
+                        <h3>Shop Categories</h3>
+                        <a href="javascript:void(0)" class="view-all-link" onclick="app.navigateTo('categories')">View All</a>
+                    </div>
+                    <div id="home-categories-grid" class="categories-scroll-grid">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Flash Sale Section -->
+                <div class="flash-sale-box">
+                    <div class="flash-sale-header">
+                        <div class="flash-title">
+                            <i class="fa-solid fa-bolt flash-icon"></i>
+                            <span>FLASH SALE</span>
+                        </div>
+                        <div class="flash-timer">
+                            <span>Ends in:</span>
+                            <strong id="flash-countdown">04:32:19</strong>
+                        </div>
+                    </div>
+                    <div id="flash-products-scroll" class="horizontal-products-scroll">
+                        <!-- Flash sale products loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Popular Streetwear Products -->
+                <div class="section-block">
+                    <div class="section-header">
+                        <h3>Popular Right Now 🔥</h3>
+                        <a href="javascript:void(0)" class="view-all-link" onclick="app.navigateTo('products')">See All</a>
+                    </div>
+                    <div id="popular-products-grid" class="products-grid">
+                        <!-- Products loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- New Arrivals Section -->
+                <div class="section-block">
+                    <div class="section-header">
+                        <h3>New Clothing Drops ✨</h3>
+                    </div>
+                    <div id="new-products-grid" class="products-grid">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: CATEGORIES -->
+            <section id="view-categories" class="app-view hidden">
+                <div class="section-header">
+                    <h2>All Categories</h2>
+                </div>
+                <div id="all-categories-list" class="full-categories-grid">
+                    <!-- Loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: PRODUCT LISTING / SEARCH -->
+            <section id="view-products" class="app-view hidden">
+                <div class="products-top-bar">
+                    <div class="result-count">
+                        <span id="products-found-title">Clothing Collection</span>
+                        <small id="products-count-badge">0 Items</small>
+                    </div>
+                    <div class="sort-filter-actions">
+                        <select id="sort-select" onchange="app.handleSortChange(this.value)">
+                            <option value="popular">Popularity</option>
+                            <option value="price_low">Price: Low to High</option>
+                            <option value="price_high">Price: High to Low</option>
+                            <option value="rating">Customer Rating</option>
+                            <option value="newest">Newest Drops</option>
+                        </select>
+                        <button class="btn btn-outline btn-sm" onclick="app.toggleFilterDrawer()">
+                            <i class="fa-solid fa-sliders"></i> Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Filter Tags -->
+                <div id="active-filter-tags" class="active-filter-tags"></div>
+
+                <!-- Products Grid -->
+                <div id="products-list-grid" class="products-grid">
+                    <!-- Loaded dynamically -->
+                </div>
+
+                <!-- Empty Search State -->
+                <div id="no-products-found" class="empty-state hidden">
+                    <i class="fa-solid fa-shirt empty-icon"></i>
+                    <h3>No clothing items found</h3>
+                    <p>We couldn't find any products matching your search query or filter.</p>
+                    <button class="btn btn-primary" onclick="app.resetFilters()">Clear Filters</button>
+                </div>
+            </section>
+
+            <!-- VIEW: PRODUCT DETAILS MODAL / PAGE -->
+            <section id="view-product-details" class="app-view hidden">
+                <button class="back-btn-float" onclick="app.closeProductDetails()"><i class="fa-solid fa-chevron-left"></i></button>
+                <div id="product-detail-container" class="product-detail-container">
+                    <!-- Product Details content injected dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: WISHLIST -->
+            <section id="view-wishlist" class="app-view hidden">
+                <div class="section-header">
+                    <h2>My Wishlist <i class="fa-solid fa-heart text-orange"></i></h2>
+                </div>
+                <div id="wishlist-items-container" class="wishlist-container">
+                    <!-- Loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: CART -->
+            <section id="view-cart" class="app-view hidden">
+                <div class="section-header">
+                    <h2>My Shopping Bag <i class="fa-solid fa-bag-shopping text-orange"></i></h2>
+                </div>
+
+                <div id="cart-content-wrap">
+                    <div id="cart-items-list" class="cart-items-list">
+                        <!-- Cart items injected here -->
+                    </div>
+
+                    <!-- Price Summary Card -->
+                    <div id="cart-summary-card" class="cart-summary-card">
+                        <h3>Order Price Summary</h3>
+                        
+                        <div class="coupon-box">
+                            <input type="text" id="coupon-code-input" placeholder="Enter Coupon Code (e.g. NARUTO10)">
+                            <button class="btn btn-sm btn-orange" onclick="app.applyCoupon()">Apply</button>
+                        </div>
+
+                        <div class="summary-line">
+                            <span>Item Subtotal</span>
+                            <strong id="summary-subtotal">₹0</strong>
+                        </div>
+                        <div class="summary-line text-green">
+                            <span>Discount Code</span>
+                            <strong id="summary-discount">-₹0</strong>
+                        </div>
+                        <div class="summary-line">
+                            <span>Express Delivery Fee</span>
+                            <strong id="summary-delivery">₹0</strong>
+                        </div>
+                        <div class="summary-line">
+                            <span>Estimated Tax (5% GST)</span>
+                            <strong id="summary-tax">₹0</strong>
+                        </div>
+                        <hr class="summary-divider">
+                        <div class="summary-line total-line">
+                            <span>Total Amount</span>
+                            <strong id="summary-total" class="text-orange">₹0</strong>
+                        </div>
+
+                        <button id="btn-proceed-checkout" class="btn btn-primary btn-block btn-lg mt-3" onclick="app.navigateTo('checkout')">
+                            Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: ADDRESS MANAGER -->
+            <section id="view-addresses" class="app-view hidden">
+                <div class="section-header">
+                    <h2>Saved Shipping Addresses</h2>
+                    <button class="btn btn-orange btn-sm" onclick="app.openAddAddressModal()">+ Add New Address</button>
+                </div>
+                <div id="address-cards-list" class="address-cards-list">
+                    <!-- Address cards injected dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: CHECKOUT -->
+            <section id="view-checkout" class="app-view hidden">
+                <div class="section-header">
+                    <h2>Secure Checkout</h2>
+                </div>
+
+                <div class="checkout-step-box">
+                    <div class="checkout-step-header">
+                        <span><i class="fa-solid fa-location-dot"></i> Delivery Address</span>
+                        <button class="btn-link" onclick="app.navigateTo('addresses')">Change</button>
+                    </div>
+                    <div id="checkout-selected-address" class="selected-address-card">
+                        <!-- Injected -->
+                    </div>
+                </div>
+
+                <div class="checkout-step-box mt-3">
+                    <div class="checkout-step-header">
+                        <span><i class="fa-solid fa-box-open"></i> Order Summary</span>
+                    </div>
+                    <div id="checkout-order-items" class="checkout-items-preview">
+                        <!-- Injected -->
+                    </div>
+                </div>
+
+                <div class="checkout-step-box mt-3">
+                    <div class="checkout-step-header">
+                        <span><i class="fa-solid fa-credit-card"></i> Payment Method</span>
+                    </div>
+
+                    <div class="payment-methods-options">
+                        <label class="payment-option-card">
+                            <input type="radio" name="payment_method" value="Online UPI / Card" checked onchange="app.togglePaymentNotice()">
+                            <div class="payment-option-content">
+                                <div class="option-title"><i class="fa-solid fa-bolt text-orange"></i> Online Instant Payment</div>
+                                <div class="option-desc">UPI (GPay, PhonePe, Paytm), Credit / Debit Card, NetBanking</div>
+                            </div>
+                        </label>
+
+                        <label class="payment-option-card">
+                            <input type="radio" name="payment_method" value="Cash on Delivery" onchange="app.togglePaymentNotice()">
+                            <div class="payment-option-content">
+                                <div class="option-title"><i class="fa-solid fa-money-bill-1-wave text-green"></i> Cash on Delivery (COD)</div>
+                                <div class="option-desc">Pay in cash when order arrives (+₹50 handling fee)</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Total Amount Summary Bar -->
+                <div class="checkout-total-bar mt-4">
+                    <div>
+                        <span>Payable Amount</span>
+                        <h2 id="checkout-final-amount" class="text-orange">₹0</h2>
+                    </div>
+                    <button id="btn-place-order" class="btn btn-primary btn-lg" onclick="app.placeOrder()">
+                        Place Order <i class="fa-solid fa-shield-check"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- VIEW: ORDER CONFIRMATION SUCCESS -->
+            <section id="view-order-success" class="app-view hidden text-center">
+                <div class="success-card">
+                    <div class="success-icon-wrap">
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                    </div>
+                    <h1 class="success-title">🎉 Order Placed Successfully!</h1>
+                    <p class="success-sub">Thank you for your purchase. We are preparing your NARUTO apparel for dispatch.</p>
+
+                    <div id="success-order-details" class="success-details-box">
+                        <!-- Details injected -->
+                    </div>
+
+                    <div class="success-actions mt-4">
+                        <button class="btn btn-primary btn-lg btn-block" onclick="app.openOrderTracking(app.latestPlacedOrderId)">
+                            <i class="fa-solid fa-truck-fast"></i> Track My Order
+                        </button>
+                        <button class="btn btn-outline btn-block mt-2" onclick="app.navigateTo('home')">
+                            Continue Shopping
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: MY ORDERS -->
+            <section id="view-orders" class="app-view hidden">
+                <div class="section-header">
+                    <h2>My Orders 📦</h2>
+                </div>
+                <div id="my-orders-list" class="my-orders-list">
+                    <!-- Injected dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: ORDER TRACKING TIMELINE -->
+            <section id="view-tracking" class="app-view hidden">
+                <div class="section-header">
+                    <button class="btn-icon" onclick="app.navigateTo('orders')"><i class="fa-solid fa-arrow-left"></i></button>
+                    <h2>Order Tracking</h2>
+                </div>
+                <div id="order-tracking-card" class="tracking-card">
+                    <!-- Tracking Timeline injected dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: USER PROFILE -->
+            <section id="view-profile" class="app-view hidden">
+                <div class="profile-header-card">
+                    <div class="profile-avatar">
+                        <i class="fa-solid fa-user-ninja"></i>
+                    </div>
+                    <h2 id="profile-user-name">Naruto Uzumaki</h2>
+                    <p id="profile-user-phone">+91 9876543210</p>
+                    <span id="profile-user-email" class="profile-email">naruto@leaf.village</span>
+                </div>
+
+                <div class="profile-menu-list">
+                    <div class="menu-item" onclick="app.navigateTo('orders')">
+                        <i class="fa-solid fa-box text-orange"></i>
+                        <span>My Orders</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </div>
+                    <div class="menu-item" onclick="app.navigateTo('wishlist')">
+                        <i class="fa-solid fa-heart text-orange"></i>
+                        <span>Wishlist</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </div>
+                    <div class="menu-item" onclick="app.navigateTo('cart')">
+                        <i class="fa-solid fa-bag-shopping text-orange"></i>
+                        <span>My Cart</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </div>
+                    <div class="menu-item" onclick="app.navigateTo('addresses')">
+                        <i class="fa-solid fa-map-location-dot text-orange"></i>
+                        <span>Saved Addresses</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </div>
+                    <div class="menu-item" onclick="app.navigateTo('notifications')">
+                        <i class="fa-solid fa-bell text-orange"></i>
+                        <span>Notifications</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </div>
+                    
+                    <!-- Admin Panel Switch -->
+                    <div class="menu-item admin-toggle-item" onclick="app.navigateTo('admin')">
+                        <i class="fa-solid fa-user-shield text-orange"></i>
+                        <span>Admin Management Panel</span>
+                        <span class="admin-badge">ADMIN</span>
+                    </div>
+
+                    <div class="menu-item logout-item" onclick="app.logout()">
+                        <i class="fa-solid fa-right-from-bracket text-red"></i>
+                        <span>Log Out</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: NOTIFICATIONS -->
+            <section id="view-notifications" class="app-view hidden">
+                <div class="section-header">
+                    <h2>Notifications</h2>
+                </div>
+                <div id="notifications-list" class="notifications-list">
+                    <!-- Injected dynamically -->
+                </div>
+            </section>
+
+            <!-- VIEW: ADMIN PANEL -->
+            <section id="view-admin" class="app-view hidden">
+                <div class="admin-header">
+                    <h2><i class="fa-solid fa-shield-halved text-orange"></i> Shop Owner Admin Dashboard</h2>
+                    <button class="btn btn-sm btn-outline" onclick="app.navigateTo('profile')">Exit Admin</button>
+                </div>
+
+                <!-- Admin Stats -->
+                <div class="admin-stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Revenue</span>
+                        <h3 id="stat-revenue" class="text-orange">₹0</h3>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Total Orders</span>
+                        <h3 id="stat-orders">0</h3>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Active Products</span>
+                        <h3 id="stat-products">0</h3>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Registered Users</span>
+                        <h3 id="stat-users">0</h3>
+                    </div>
+                </div>
+
+                <!-- Admin Tabs -->
+                <div class="admin-tabs">
+                    <button id="tab-btn-orders" class="admin-tab active" onclick="app.switchAdminTab('orders')">Manage Orders</button>
+                    <button id="tab-btn-products" class="admin-tab" onclick="app.switchAdminTab('products')">Manage Products</button>
+                </div>
+
+                <!-- ADMIN ORDER MANAGEMENT -->
+                <div id="admin-tab-orders" class="admin-tab-content">
+                    <div id="admin-orders-list" class="admin-orders-list">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+
+                <!-- ADMIN PRODUCT MANAGEMENT -->
+                <div id="admin-tab-products" class="admin-tab-content hidden">
+                    <button class="btn btn-orange mb-3" onclick="app.openAddProductModal()">+ Add New Clothing Item</button>
+                    <div id="admin-products-list" class="admin-products-grid">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ==================== BOTTOM NAVIGATION BAR ==================== -->
+        <nav id="bottom-nav" class="bottom-nav hidden">
+            <button class="nav-item active" data-view="home" onclick="app.navigateTo('home')">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-view="categories" onclick="app.navigateTo('categories')">
+                <i class="fa-solid fa-grid-2"></i>
+                <span>Categories</span>
+            </button>
+            <button class="nav-item" data-view="wishlist" onclick="app.navigateTo('wishlist')">
+                <i class="fa-solid fa-heart"></i>
+                <span>Wishlist</span>
+            </button>
+            <button class="nav-item" data-view="cart" onclick="app.navigateTo('cart')">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Cart</span>
+            </button>
+            <button class="nav-item" data-view="profile" onclick="app.navigateTo('profile')">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- ==================== MODALS & DRAWER ==================== -->
+
+        <!-- Filter Drawer Modal -->
+        <div id="filter-drawer" class="drawer-modal hidden">
+            <div class="drawer-overlay" onclick="app.toggleFilterDrawer()"></div>
+            <div class="drawer-content">
+                <div class="drawer-header">
+                    <h3>Filter Clothing</h3>
+                    <button class="btn-icon" onclick="app.toggleFilterDrawer()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="drawer-body">
+                    <div class="filter-group">
+                        <label>Category</label>
+                        <select id="filter-category" onchange="app.applyFilters()">
+                            <option value="All">All Categories</option>
+                            <option value="Men's Clothing">Men's Clothing</option>
+                            <option value="Women's Clothing">Women's Clothing</option>
+                            <option value="Kids">Kids</option>
+                            <option value="T-Shirts">T-Shirts</option>
+                            <option value="Shirts">Shirts</option>
+                            <option value="Jeans">Jeans</option>
+                            <option value="Hoodies">Hoodies</option>
+                            <option value="Jackets">Jackets</option>
+                            <option value="Cargo Pants">Cargo Pants</option>
+                            <option value="Dresses">Dresses</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Accessories">Accessories</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Max Price (₹): <strong id="filter-price-val">₹5000</strong></label>
+                        <input type="range" id="filter-price-range" min="500" max="6000" step="250" value="6000" oninput="document.getElementById('filter-price-val').innerText='₹'+this.value; app.applyFilters()">
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Minimum Rating</label>
+                        <select id="filter-rating" onchange="app.applyFilters()">
+                            <option value="0">All Ratings</option>
+                            <option value="4.5">4.5★ & Above</option>
+                            <option value="4.0">4.0★ & Above</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="drawer-footer">
+                    <button class="btn btn-outline btn-block" onclick="app.resetFilters()">Reset All</button>
+                    <button class="btn btn-primary btn-block" onclick="app.toggleFilterDrawer()">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Address Modal -->
+        <div id="address-modal" class="drawer-modal hidden">
+            <div class="drawer-overlay" onclick="app.closeAddressModal()"></div>
+            <div class="drawer-content modal-popup">
+                <div class="drawer-header">
+                    <h3>Add Delivery Address</h3>
+                    <button class="btn-icon" onclick="app.closeAddressModal()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <form id="add-address-form" onsubmit="app.handleSaveAddress(event)">
+                    <div class="drawer-body">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="addr-name" required placeholder="Naruto Uzumaki">
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="tel" id="addr-phone" required placeholder="9876543210">
+                        </div>
+                        <div class="form-group">
+                            <label>Flat / House / Building No.</label>
+                            <input type="text" id="addr-house" required placeholder="Flat 4B, Leaf Tower">
+                        </div>
+                        <div class="form-group">
+                            <label>Street / Area / Colony</label>
+                            <input type="text" id="addr-street" required placeholder="Main Street">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" id="addr-city" required placeholder="Konoha">
+                            </div>
+                            <div class="form-group">
+                                <label>Pincode</label>
+                                <input type="text" id="addr-pincode" required placeholder="400001">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" id="addr-state" required placeholder="Fire Country">
+                        </div>
+                    </div>
+                    <div class="drawer-footer">
+                        <button type="submit" class="btn btn-primary btn-block">Save Shipping Address</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Payment Gateway Simulation Modal -->
+        <div id="payment-gateway-modal" class="drawer-modal hidden">
+            <div class="drawer-overlay"></div>
+            <div class="drawer-content modal-popup text-center">
+                <div class="payment-modal-header">
+                    <div class="secure-badge"><i class="fa-solid fa-lock"></i> 256-Bit Encrypted Payment</div>
+                    <h2>NARUTO Pay Gateway</h2>
+                </div>
+                <div class="payment-modal-body">
+                    <p>Processing amount: <strong id="pay-modal-amount" class="text-orange">₹0</strong></p>
+                    <div id="payment-step-select">
+                        <p class="text-sm text-gray">Select UPI / Card simulator:</p>
+                        <div class="upi-apps-grid">
+                            <button class="upi-btn" onclick="app.simulatePaymentSuccess('Google Pay')">
+                                <i class="fa-brands fa-google-pay"></i> GPay
+                            </button>
+                            <button class="upi-btn" onclick="app.simulatePaymentSuccess('PhonePe')">
+                                <i class="fa-solid fa-mobile"></i> PhonePe
+                            </button>
+                            <button class="upi-btn" onclick="app.simulatePaymentSuccess('Paytm')">
+                                <i class="fa-solid fa-wallet"></i> Paytm
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="payment-step-processing" class="hidden">
+                        <div class="spinner-ring"></div>
+                        <p class="mt-3">Authorizing payment with bank...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Add Product Modal -->
+        <div id="admin-product-modal" class="drawer-modal hidden">
+            <div class="drawer-overlay" onclick="app.closeAddProductModal()"></div>
+            <div class="drawer-content modal-popup">
+                <div class="drawer-header">
+                    <h3>Add New Clothing Product</h3>
+                    <button class="btn-icon" onclick="app.closeAddProductModal()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <form id="admin-add-product-form" onsubmit="app.handleAdminSaveProduct(event)">
+                    <div class="drawer-body">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" id="adm-prod-name" required placeholder="e.g. Akatsuki Bomber Jacket">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select id="adm-prod-cat" required>
+                                    <option value="Hoodies">Hoodies</option>
+                                    <option value="Jackets">Jackets</option>
+                                    <option value="T-Shirts">T-Shirts</option>
+                                    <option value="Shirts">Shirts</option>
+                                    <option value="Jeans">Jeans</option>
+                                    <option value="Cargo Pants">Cargo Pants</option>
+                                    <option value="Dresses">Dresses</option>
+                                    <option value="Shoes">Shoes</option>
+                                    <option value="Accessories">Accessories</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Brand</label>
+                                <input type="text" id="adm-prod-brand" required value="NARUTO Originals">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Price (₹)</label>
+                                <input type="number" id="adm-prod-price" required placeholder="1999">
+                            </div>
+                            <div class="form-group">
+                                <label>Original Price (₹)</label>
+                                <input type="number" id="adm-prod-orig-price" required placeholder="2999">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock Inventory</label>
+                            <input type="number" id="adm-prod-stock" required value="25">
+                        </div>
+                        <div class="form-group">
+                            <label>Image URL</label>
+                            <input type="url" id="adm-prod-img" required value="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="adm-prod-desc" rows="3" placeholder="Describe the clothing item..."></textarea>
+                        </div>
+                    </div>
+                    <div class="drawer-footer">
+                        <button type="submit" class="btn btn-primary btn-block">Add Product to Store</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast Notification Popup -->
+        <div id="toast-container" class="toast-container"></div>
+
+    </div>
+
+    <!-- Application Script -->
+    <script src="js/app.js"></script>
+</body>
+</html>

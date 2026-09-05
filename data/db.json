@@ -1,0 +1,730 @@
+{
+  "users": [
+    {
+      "id": "usr_demo",
+      "name": "Naruto Uzumaki",
+      "phone": "9876543210",
+      "email": "naruto@leaf.village",
+      "created_at": "2026-09-01T10:00:00Z"
+    },
+    {
+      "id": "usr_1788592848",
+      "name": "Aish",
+      "phone": "9611741224",
+      "email": "9611741224@naruto.fashion",
+      "created_at": "2026-09-05T12:50:48.916571"
+    }
+  ],
+  "otps": {
+    "9876543210": "789012",
+    "9611741224": "789012"
+  },
+  "categories": [
+    {
+      "id": "cat_mens",
+      "name": "Men's Clothing",
+      "icon": "fa-mars",
+      "image": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_womens",
+      "name": "Women's Clothing",
+      "icon": "fa-venus",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_kids",
+      "name": "Kids",
+      "icon": "fa-child",
+      "image": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_tshirts",
+      "name": "T-Shirts",
+      "icon": "fa-tshirt",
+      "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_shirts",
+      "name": "Shirts",
+      "icon": "fa-shirt",
+      "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_jeans",
+      "name": "Jeans",
+      "icon": "fa-user-ninja",
+      "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_hoodies",
+      "name": "Hoodies",
+      "icon": "fa-vest",
+      "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_jackets",
+      "name": "Jackets",
+      "icon": "fa-user-tie",
+      "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_cargos",
+      "name": "Cargo Pants",
+      "icon": "fa-socks",
+      "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_dresses",
+      "name": "Dresses",
+      "icon": "fa-person-dress",
+      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_shoes",
+      "name": "Shoes",
+      "icon": "fa-shoe-prints",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "cat_accessories",
+      "name": "Accessories",
+      "icon": "fa-glasses",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_1",
+      "name": "Akatsuki Cloud Oversized Hoodie",
+      "category": "Hoodies",
+      "brand": "NARUTO Originals",
+      "price": 1899,
+      "original_price": 2999,
+      "discount": 36,
+      "rating": 4.9,
+      "reviews_count": 342,
+      "stock": 25,
+      "is_popular": true,
+      "is_new": true,
+      "is_bestseller": true,
+      "description": "Premium 400 GSM heavyweight cotton fleece hoodie with embroidered Akatsuki red cloud motif. Relaxed drop-shoulder fit designed for modern streetwear styling.",
+      "specifications": {
+        "Material": "100% Super Combed Organic Cotton",
+        "Fit": "Oversized Streetwear Fit",
+        "Wash Care": "Machine wash cold inside out",
+        "Sleeve": "Long Sleeves with Ribbed Cuffs"
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Matte Black",
+        "Crimson Red",
+        "Shadow Gray"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_2",
+      "name": "Shinobi Orange Track Jacket",
+      "category": "Jackets",
+      "brand": "NARUTO Athletics",
+      "price": 2499,
+      "original_price": 3999,
+      "discount": 37,
+      "rating": 4.8,
+      "reviews_count": 218,
+      "stock": 18,
+      "is_popular": true,
+      "is_new": true,
+      "is_bestseller": false,
+      "description": "Iconic high-neck zip track jacket in vibrant Leaf Village orange with black dynamic side panels. Weatherproof breathable shell with mesh lining.",
+      "specifications": {
+        "Material": "Premium Nylon Poly-Blend",
+        "Closure": "YKK Zip Front",
+        "Pockets": "Dual Side Zip Pockets",
+        "Fit": "Athletic Regular Fit"
+      },
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Signature Orange",
+        "Midnight Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_3",
+      "name": "Tactical Multi-Pocket Cargo Pants",
+      "category": "Cargo Pants",
+      "brand": "NARUTO Techwear",
+      "price": 1999,
+      "original_price": 3299,
+      "discount": 39,
+      "rating": 4.7,
+      "reviews_count": 189,
+      "stock": 30,
+      "is_popular": true,
+      "is_new": false,
+      "is_bestseller": true,
+      "description": "Heavy-duty ripstop cargo trousers featuring 8 utility pockets, adjustable ankle cinch straps, and elasticated drawstring waist.",
+      "specifications": {
+        "Material": "Cotton Ripstop Fabric",
+        "Pockets": "8 Tactical Pockets",
+        "Ankle": "Adjustable Drawstring Cinch",
+        "Fit": "Tapered Cargo Fit"
+      },
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "colors": [
+        "Stealth Black",
+        "Tactical Olive",
+        "Charcoal Gray"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_4",
+      "name": "Vintage Acid-Washed Graphic Tee",
+      "category": "T-Shirts",
+      "brand": "NARUTO Street",
+      "price": 999,
+      "original_price": 1699,
+      "discount": 41,
+      "rating": 4.6,
+      "reviews_count": 412,
+      "stock": 45,
+      "is_popular": true,
+      "is_new": false,
+      "is_bestseller": true,
+      "description": "Heavyweight 240 GSM acid-washed vintage t-shirt featuring high-density front print. Pre-shrunk for consistent fit wash after wash.",
+      "specifications": {
+        "Material": "100% Combed Cotton",
+        "GSM": "240 GSM Heavy Weight",
+        "Neckline": "Thick Ribbed Crew Neck",
+        "Fit": "Boxy Oversized Fit"
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Vintage Charcoal",
+        "Washed Orange",
+        "Snow White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_5",
+      "name": "Dark Slim-Fit Stretch Denim Jeans",
+      "category": "Jeans",
+      "brand": "NARUTO Denim Co.",
+      "price": 2199,
+      "original_price": 3499,
+      "discount": 37,
+      "rating": 4.8,
+      "reviews_count": 156,
+      "stock": 20,
+      "is_popular": false,
+      "is_new": true,
+      "is_bestseller": false,
+      "description": "Premium indigo washed stretch denim jeans engineered for comfort and durability. Subtle whiskering effect with custom branded rivets.",
+      "specifications": {
+        "Material": "98% Cotton, 2% Elastane",
+        "Rise": "Mid-Rise Fit",
+        "Wash": "Dark Indigo Vintage",
+        "Closure": "Zip Fly with Button"
+      },
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "colors": [
+        "Deep Indigo",
+        "Matte Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_6",
+      "name": "Classic Linen-Blend Casual Shirt",
+      "category": "Shirts",
+      "brand": "NARUTO Couture",
+      "price": 1499,
+      "original_price": 2499,
+      "discount": 40,
+      "rating": 4.5,
+      "reviews_count": 94,
+      "stock": 15,
+      "is_popular": false,
+      "is_new": true,
+      "is_bestseller": false,
+      "description": "Breathable cotton-linen blend button-down shirt ideal for casual outings and smart streetwear pairing.",
+      "specifications": {
+        "Material": "55% Linen, 45% Cotton",
+        "Collar": "Button-Down Collar",
+        "Sleeve": "Full Sleeve with Roll-up Tab",
+        "Pattern": "Solid Matte Finish"
+      },
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Cream White",
+        "Olive Green",
+        "Burnt Orange"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_7",
+      "name": "Floral Tiered Summer Midi Dress",
+      "category": "Dresses",
+      "brand": "NARUTO Femme",
+      "price": 1799,
+      "original_price": 2999,
+      "discount": 40,
+      "rating": 4.9,
+      "reviews_count": 275,
+      "stock": 22,
+      "is_popular": true,
+      "is_new": true,
+      "is_bestseller": true,
+      "description": "Elegantly flowing printed midi dress crafted from soft rayon fabric with elasticated smocked waist and flutter short sleeves.",
+      "specifications": {
+        "Material": "100% Premium Rayon",
+        "Length": "Midi Length",
+        "Neckline": "Sweetheart V-Neck",
+        "Closure": "Concealed Back Zipper"
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "Sunset Floral",
+        "Emerald Meadow"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_8",
+      "name": "Chunky Platform Street Sneakers",
+      "category": "Shoes",
+      "brand": "NARUTO Kicks",
+      "price": 3299,
+      "original_price": 5499,
+      "discount": 40,
+      "rating": 4.8,
+      "reviews_count": 310,
+      "stock": 14,
+      "is_popular": true,
+      "is_new": false,
+      "is_bestseller": true,
+      "description": "Futuristic high-top sneakers with cushioned air-sole unit, suede leather panels, and contrast orange piping.",
+      "specifications": {
+        "Upper Material": "Genuine Leather & Breathable Mesh",
+        "Sole": "Ultra-Cushioned EVA Rubber",
+        "Insole": "Memory Foam Ortho Cushion",
+        "Closure": "Lace-Up with Ankle Strap"
+      },
+      "sizes": [
+        "UK 7",
+        "UK 8",
+        "UK 9",
+        "UK 10"
+      ],
+      "colors": [
+        "Black & Orange",
+        "Pure White & Silver"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_9",
+      "name": "Chrono Orange-Accent Matte Wristwatch",
+      "category": "Accessories",
+      "brand": "NARUTO Timepieces",
+      "price": 2799,
+      "original_price": 4999,
+      "discount": 44,
+      "rating": 4.7,
+      "reviews_count": 128,
+      "stock": 12,
+      "is_popular": false,
+      "is_new": true,
+      "is_bestseller": false,
+      "description": "50m Water Resistant chronograph quartz watch featuring matte black stainless steel case and high-durability orange silicone strap.",
+      "specifications": {
+        "Movement": "Japanese Quartz Movement",
+        "Case Diameter": "44mm Matte Steel",
+        "Strap": "Medical Grade Silicone",
+        "Water Resistance": "5 ATM / 50 Meters"
+      },
+      "sizes": [
+        "One Size"
+      ],
+      "colors": [
+        "Matte Black / Orange"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1539185441755-769473a23570?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_10",
+      "name": "Kids Ninja Soft Cotton Graphic Tee",
+      "category": "Kids",
+      "brand": "NARUTO Junior",
+      "price": 699,
+      "original_price": 1199,
+      "discount": 41,
+      "rating": 4.9,
+      "reviews_count": 87,
+      "stock": 40,
+      "is_popular": false,
+      "is_new": true,
+      "is_bestseller": true,
+      "description": "Ultra-soft bio-washed hypoallergenic cotton t-shirt for kids. Skin-friendly non-toxic print that stays vibrant after multiple washes.",
+      "specifications": {
+        "Material": "100% Bio-Washed Soft Cotton",
+        "Age Group": "4-12 Years",
+        "Safety": "OEKO-TEX Certified Non-Toxic Ink",
+        "Fit": "Regular Comfortable Fit"
+      },
+      "sizes": [
+        "4-6Y",
+        "6-8Y",
+        "8-10Y",
+        "10-12Y"
+      ],
+      "colors": [
+        "Sunny Orange",
+        "Royal Blue",
+        "Bright Yellow"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_11",
+      "name": "Distressed Vintage Denim Trucker Jacket",
+      "category": "Jackets",
+      "brand": "NARUTO Denim Co.",
+      "price": 2899,
+      "original_price": 4599,
+      "discount": 37,
+      "rating": 4.8,
+      "reviews_count": 164,
+      "stock": 16,
+      "is_popular": true,
+      "is_new": true,
+      "is_bestseller": false,
+      "description": "Classic 14oz rigid denim trucker jacket with custom hand-distressed detailing, shank buttons, and fleece detachable collar.",
+      "specifications": {
+        "Material": "100% Heavyweight Cotton Denim",
+        "Detailing": "Hand Distressed & Abrasion Effects",
+        "Pockets": "Twin Chest Pockets + Side Slits",
+        "Fit": "Relaxed Trucker Fit"
+      },
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Washed Blue",
+        "Vintage Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=800&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "prod_12",
+      "name": "Ribbed Knit Bodycon Evening Dress",
+      "category": "Dresses",
+      "brand": "NARUTO Femme",
+      "price": 1999,
+      "original_price": 3299,
+      "discount": 39,
+      "rating": 4.7,
+      "reviews_count": 92,
+      "stock": 19,
+      "is_popular": false,
+      "is_new": true,
+      "is_bestseller": false,
+      "description": "Sleek ribbed knit silhouette dress featuring side slit details and elegant square neckline. Flattering curve-enhancing stretch fabric.",
+      "specifications": {
+        "Material": "Viscose Elastane Stretch Knit",
+        "Neckline": "Square Collarline",
+        "Detail": "Thigh-High Side Slit",
+        "Care": "Hand wash recommended"
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "Jet Black",
+        "Rust Orange",
+        "Burgundy"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&auto=format&fit=crop&q=80"
+      ]
+    }
+  ],
+  "cart": {
+    "usr_demo": [],
+    "usr_1788592848": [
+      {
+        "id": "item_1788592939051",
+        "product_id": "prod_1",
+        "name": "Akatsuki Cloud Oversized Hoodie",
+        "brand": "NARUTO Originals",
+        "price": 1899,
+        "original_price": 2999,
+        "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80",
+        "size": "M",
+        "color": "Default",
+        "quantity": 1,
+        "stock": 25
+      }
+    ]
+  },
+  "wishlist": {
+    "usr_demo": [
+      "prod_1",
+      "prod_8"
+    ],
+    "usr_1788592848": [
+      "prod_7",
+      "prod_12"
+    ]
+  },
+  "addresses": {
+    "usr_demo": [
+      {
+        "id": "addr_1",
+        "name": "Naruto Uzumaki",
+        "phone": "9876543210",
+        "house": "Hokage Residence #7",
+        "street": "Main Street, Leaf Village",
+        "landmark": "Near Ichiraku Ramen",
+        "city": "Konoha",
+        "state": "Fire Country",
+        "pincode": "400001",
+        "is_default": true
+      }
+    ],
+    "usr_1788592848": []
+  },
+  "orders": [
+    {
+      "id": "ORD-782910",
+      "user_id": "usr_demo",
+      "items": [
+        {
+          "product_id": "prod_1",
+          "name": "Akatsuki Cloud Oversized Hoodie",
+          "price": 1899,
+          "quantity": 1,
+          "size": "L",
+          "color": "Matte Black",
+          "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80"
+        }
+      ],
+      "address": {
+        "name": "Naruto Uzumaki",
+        "phone": "9876543210",
+        "house": "Hokage Residence #7",
+        "street": "Main Street, Leaf Village",
+        "city": "Konoha",
+        "state": "Fire Country",
+        "pincode": "400001"
+      },
+      "subtotal": 1899,
+      "discount": 0,
+      "delivery_fee": 0,
+      "tax": 95,
+      "total_amount": 1994,
+      "payment_method": "Online UPI (GPay)",
+      "payment_status": "Paid",
+      "order_status": "Out for Delivery",
+      "status_history": [
+        {
+          "status": "Placed",
+          "time": "2026-09-04T09:30:00Z",
+          "note": "Order received and validated"
+        },
+        {
+          "status": "Confirmed",
+          "time": "2026-09-04T10:00:00Z",
+          "note": "Payment verified. Seller confirmed order."
+        },
+        {
+          "status": "Packed",
+          "time": "2026-09-04T14:20:00Z",
+          "note": "Packed in eco-friendly NARUTO box"
+        },
+        {
+          "status": "Shipped",
+          "time": "2026-09-05T06:00:00Z",
+          "note": "Handed over to NARUTO Express (Tracking #NEX-98213)"
+        },
+        {
+          "status": "Out for Delivery",
+          "time": "2026-09-05T09:15:00Z",
+          "note": "Rohan from NARUTO Express is out for delivery in Konoha"
+        }
+      ],
+      "courier_name": "NARUTO Express Direct",
+      "tracking_number": "NEX-98213",
+      "order_date": "2026-09-04T09:30:00Z",
+      "estimated_delivery": "Today by 6:00 PM"
+    },
+    {
+      "id": "ORD-110077",
+      "user_id": "usr_demo",
+      "items": [
+        {
+          "id": "item_1788590972550",
+          "product_id": "prod_1",
+          "name": "Akatsuki Cloud Oversized Hoodie",
+          "brand": "NARUTO Originals",
+          "price": 1899,
+          "original_price": 2999,
+          "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80",
+          "size": "XL",
+          "color": "Matte Black",
+          "quantity": 1,
+          "stock": 25
+        }
+      ],
+      "address": {
+        "name": "Naruto Uzumaki",
+        "phone": "9876543210",
+        "house": "Leaf Flat 4",
+        "street": "Hokage St",
+        "city": "Konoha",
+        "state": "Fire Country",
+        "pincode": "400001"
+      },
+      "subtotal": 1899,
+      "discount": 0,
+      "delivery_fee": 0,
+      "tax": 94,
+      "total_amount": 1993,
+      "payment_method": "Online UPI (GPay)",
+      "payment_status": "Paid",
+      "order_status": "Out for Delivery",
+      "status_history": [
+        {
+          "status": "Placed",
+          "time": "2026-09-05T12:19:34.620148",
+          "note": "Order received and confirmed by customer."
+        },
+        {
+          "status": "Out for Delivery",
+          "time": "2026-09-05T12:19:36.690880",
+          "note": "Driver Rohan is delivering your order!"
+        }
+      ],
+      "courier_name": "NARUTO Express",
+      "tracking_number": "NEX-64802",
+      "order_date": "2026-09-05T12:19:34.620148",
+      "estimated_delivery": "Tuesday, Sep 08"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_1",
+      "user_id": "usr_demo",
+      "title": "Out for Delivery! \ud83d\ude9a",
+      "message": "Order #ORD-782910 is out for delivery today. Get ready to style your new Akatsuki Hoodie!",
+      "time": "2026-09-05T09:15:00Z",
+      "is_read": false,
+      "order_id": "ORD-782910"
+    },
+    {
+      "id": "notif_2",
+      "user_id": "usr_demo",
+      "title": "Welcome to NARUTO Fashion \ud83d\udd25",
+      "message": "Use code 'NARUTO10' to get an extra 10% OFF on your first streetwear purchase!",
+      "time": "2026-09-01T10:00:00Z",
+      "is_read": true,
+      "order_id": null
+    },
+    {
+      "id": "notif_1788590974",
+      "user_id": "usr_demo",
+      "title": "Order Placed Successfully! \ud83c\udf89",
+      "message": "Your NARUTO order #ORD-110077 worth \u20b91993 has been placed.",
+      "time": "2026-09-05T12:19:34.620148",
+      "is_read": false,
+      "order_id": "ORD-110077"
+    },
+    {
+      "id": "notif_1788590976",
+      "user_id": "usr_demo",
+      "title": "Order Status: Out for Delivery \ud83d\udce6",
+      "message": "Order #ORD-110077 is now Out for Delivery. Driver Rohan is delivering your order!",
+      "time": "2026-09-05T12:19:36.690880",
+      "is_read": false,
+      "order_id": "ORD-110077"
+    }
+  ]
+}
